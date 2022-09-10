@@ -1,0 +1,24 @@
+<mat-card class="mat-elevation-z3 p-4 my-3">
+  <div class="d-flex justify-content-between">
+    <mat-card-title>{{project.name}}</mat-card-title>
+    <mat-card-subtitle class="d-flex justify-content-end">
+      <i class="fa-brands" [ngClass]="{
+        'fa-angular': project.badge == 'angular',
+        'fa-react': project.badge == 'react'
+      }" style="font-size: 1.7rem;"></i>
+    </mat-card-subtitle>
+  </div>
+  <mat-card-content class="py-2">
+    <mat-chip-list [selectable]="false">
+      <mat-chip *ngFor="let tag of project.tags" [color]="'accent'" selected>
+        {{tag}}
+      </mat-chip>
+    </mat-chip-list>
+    <p class="py-3">{{project.description}}</p>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button mat-button>VER APP</button>
+    <button mat-button #tooltip="matTooltip" matTooltip="Ver Repositório" matTooltipPosition="above"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></button>
+  </mat-card-actions>
+</mat-card>
